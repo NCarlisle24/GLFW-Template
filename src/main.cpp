@@ -3,6 +3,9 @@
 #include <GLFW/glfw3.h>
 #include <fstream>
 #include <shader/shader.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -63,6 +66,7 @@ int main()
     shader.use();
     glBindVertexArray(VAO);
     while (!glfwWindowShouldClose(window)) {
+        shader.setUniform1f("time", glfwGetTime());
         glfwSwapBuffers(window);
         glfwPollEvents();
         glDrawArrays(GL_TRIANGLES, 0, 3);

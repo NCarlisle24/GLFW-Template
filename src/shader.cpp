@@ -85,3 +85,35 @@ void Shader::use() {
 void Shader::unuse() {
     glUseProgram(0);
 }
+
+void Shader::setUniform1f(const char* uniformName, const float val) {
+    glUniform1f(glGetUniformLocation(id, uniformName), val);
+}
+
+void Shader::setUniform1f(const char* uniformName, const float* vec) {
+    glUniform1fv(glGetUniformLocation(id, uniformName), 1, vec);
+}
+
+void Shader::setUniform2f(const char* uniformName, const float val1, const float val2) {
+    glUniform2f(glGetUniformLocation(id, uniformName), val1, val2);
+}
+
+void Shader::setUniform2f(const char* uniformName, const float* vec) {
+    glUniform2fv(glGetUniformLocation(id, uniformName), 2, vec);
+}
+
+void Shader::setUniform3f(const char* uniformName, const float val1, const float val2, const float val3) {
+    glUniform3f(glGetUniformLocation(id, uniformName), val1, val2, val3);
+}
+
+void Shader::setUniform3f(const char* uniformName, const float* vec) {
+    glUniform3fv(glGetUniformLocation(id, uniformName), 3, vec);
+}
+
+void Shader::setUniform4f(const char* uniformName, const float val1, const float val2, const float val3, const float val4) {
+    glUniform4f(glGetUniformLocation(id, uniformName), val1, val2, val3, val4);
+}
+
+void Shader::setUniform4f(const char* uniformName, const float* vec) {
+    glUniform4fv(glGetUniformLocation(id, uniformName), 4, vec);
+}
